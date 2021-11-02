@@ -17,7 +17,7 @@ val viewModelModule = module {
     }
 
     viewModel {
-        SignInFragmentViewModel()
+        SignInFragmentViewModel(get())
     }
 
 }

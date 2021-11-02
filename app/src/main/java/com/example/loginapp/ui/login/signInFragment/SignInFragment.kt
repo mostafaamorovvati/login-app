@@ -6,7 +6,6 @@ import com.example.loginapp.BR
 import com.example.loginapp.R
 import com.example.loginapp.base.BaseFragment
 import com.example.loginapp.databinding.FragmentSignInBinding
-import com.example.loginapp.utils.RegistrationUtil
 import com.example.loginapp.utils.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -42,7 +41,7 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, SignInFragmentViewMod
 
     override fun signIn() {
         mBinding.apply {
-            val isValidUser = RegistrationUtil.validRegistrationInput(
+            val isValidUser = mViewModel.validationNewUser(
                 edtUsername.text.toString().trim(),
                 edtPassword.text.toString().trim(),
                 edtConfirmPassword.text.toString().trim()

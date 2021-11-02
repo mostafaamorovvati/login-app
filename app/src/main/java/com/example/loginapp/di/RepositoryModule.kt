@@ -9,5 +9,5 @@ val repositoryModule = module {
 
     single { LoginRepository() }
     single { LoginFragmentRepository(get()) }
-    single { SignInFragmentRepository() }
+    single { SignInFragmentRepository(get()) }
 }
