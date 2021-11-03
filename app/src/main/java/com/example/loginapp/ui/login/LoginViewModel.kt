@@ -5,6 +5,4 @@ import com.example.loginapp.data.repository.LoginRepository
 
 class LoginViewModel(
     private val repo: LoginRepository
-) : BaseViewModel<LoginNavigator>(){
-
-}
+) : BaseViewModel<LoginNavigator>()

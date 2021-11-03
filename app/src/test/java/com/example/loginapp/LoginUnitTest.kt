@@ -30,7 +30,7 @@ class LoginUnitTest : KoinTest {
 
     @Test
     fun `validate test`() {
-        val result = loginFragmentViewModel.validate("mostafa", "mm123")
+        val result = loginFragmentViewModel.validate("mostafa", "123")
         assertThat(result, `is`(Constants.SUCCESS_MESSAGE))
     }
 
