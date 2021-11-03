@@ -39,12 +39,21 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginFragmentViewModel>
     }
 
     override fun login() {
-        val result = mViewModel.validate(
+
+        val isValidInput = mViewModel.validationInputData(
+            requireContext(),
             mBinding.edtUsername.text.toString().trim(),
             mBinding.edtPassword.text.toString().trim()
         )
 
-        activity?.toast(result)
+        if (isValidInput) {
+            val result = mViewModel.validate(
+                mBinding.edtUsername.text.toString().trim(),
+                mBinding.edtPassword.text.toString().trim()
+            )
+            activity?.toast(result)
+        }
+
     }
 
 

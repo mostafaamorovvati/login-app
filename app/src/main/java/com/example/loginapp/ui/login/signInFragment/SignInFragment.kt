@@ -41,16 +41,12 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, SignInFragmentViewMod
 
     override fun signIn() {
         mBinding.apply {
-            val isValidUser = mViewModel.validationNewUser(
+            mViewModel.validationNewUser(
+                requireContext(),
                 edtUsername.text.toString().trim(),
                 edtPassword.text.toString().trim(),
                 edtConfirmPassword.text.toString().trim()
             )
-
-            if (isValidUser)
-                activity?.toast("New user saved")
-            else
-                activity?.toast("Error")
         }
     }
 
