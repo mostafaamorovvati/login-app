@@ -6,7 +6,6 @@ import com.example.loginapp.ui.login.loginFragment.LoginFragmentViewModel
 import com.example.loginapp.utils.Constants
 import org.hamcrest.core.Is.`is`
 import org.junit.Assert.assertThat
-import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -16,6 +15,7 @@ import org.koin.test.KoinTest
 import org.koin.test.KoinTestRule
 import org.koin.test.inject
 import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 
 @RunWith(JUnit4::class)

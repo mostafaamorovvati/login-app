@@ -3,6 +3,8 @@ package com.example.loginapp
 import com.example.loginapp.data.local.entities.UserEntity
 import com.example.loginapp.data.repository.SignInFragmentRepository
 import com.example.loginapp.ui.login.signInFragment.SignInFragmentViewModel
+import org.hamcrest.CoreMatchers.`is`
+import org.junit.Assert.assertThat
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -36,6 +38,19 @@ class SignInUtilTest : KoinTest {
         val result = signInFragmentViewModel.validationNewUser(
             null,
             "",
+            "mmm@gmail.com",
+            "123",
+            "123"
+        )
+        assertFalse(result)
+    }
+
+    @Test
+    fun `empty email returns false`() {
+        val result = signInFragmentViewModel.validationNewUser(
+            null,
+            "",
+            "",
             "123",
             "123"
         )
@@ -47,6 +62,7 @@ class SignInUtilTest : KoinTest {
         val result = signInFragmentViewModel.validationNewUser(
             null,
             "mmm",
+            "mmm@gmail.com",
             "",
             ""
         )
@@ -58,6 +74,7 @@ class SignInUtilTest : KoinTest {
         val result = signInFragmentViewModel.validationNewUser(
             null,
             "mmm",
+            "mmm@gmail.com",
             "123",
             ""
         )
@@ -66,10 +83,11 @@ class SignInUtilTest : KoinTest {
 
 
     @Test
-    fun `fill username and password and confirm password returns true`() {
+    fun `fill username and email and password and confirm password returns true`() {
         val result = signInFragmentViewModel.validationNewUser(
             null,
             "mmm",
+            "mmm@gmail.com",
             "123",
             "123"
         )
@@ -78,10 +96,21 @@ class SignInUtilTest : KoinTest {
 
 
     @Test
+    fun `test Is Email Valid`() {
+        val testEmail = "mostafa@gmail.com"
+        assertThat(
+            String.format("Email Validity Test failed for %s ", testEmail),
+            signInFragmentViewModel.emailValidation(testEmail), `is`(true)
+        )
+    }
+
+
+    @Test
     fun `username and correctly repeated password returns true`() {
         val result = signInFragmentViewModel.validationNewUser(
             null,
             "mmm",
+            "mmm@gmail.com",
             "123",
             "123"
         )
@@ -93,6 +122,7 @@ class SignInUtilTest : KoinTest {
         val result = signInFragmentViewModel.validationNewUser(
             null,
             "mostafa",
+            "mmm@gmail.com",
             "123",
             "123"
         )
@@ -105,6 +135,7 @@ class SignInUtilTest : KoinTest {
         val result = signInFragmentViewModel.validationNewUser(
             null,
             "reza",
+            "mmm@gmail.com",
             "123",
             "1234"
         )
@@ -116,6 +147,7 @@ class SignInUtilTest : KoinTest {
         val result = signInFragmentViewModel.validationNewUser(
             null,
             "reza",
+            "mmm@gmail.com",
             "12",
             "12"
         )

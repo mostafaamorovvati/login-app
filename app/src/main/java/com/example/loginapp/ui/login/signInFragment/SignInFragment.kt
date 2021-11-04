@@ -6,7 +6,6 @@ import com.example.loginapp.BR
 import com.example.loginapp.R
 import com.example.loginapp.base.BaseFragment
 import com.example.loginapp.databinding.FragmentSignInBinding
-import com.example.loginapp.utils.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -44,6 +43,7 @@ class SignInFragment : BaseFragment<FragmentSignInBinding, SignInFragmentViewMod
             mViewModel.validationNewUser(
                 requireContext(),
                 edtUsername.text.toString().trim(),
+                edtEmail.text.toString().trim(),
                 edtPassword.text.toString().trim(),
                 edtConfirmPassword.text.toString().trim()
             )
